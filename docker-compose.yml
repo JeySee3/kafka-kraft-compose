@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  kafka-1:
+    image: egais/kafka:3.0.0_kraft
+    hostname: kafka-1
+    container_name: kafka-1
+    networks:
+      - cmp 
+    environment:
+      - TZ=Europe/Minsk
+      - KAFKA_BROKER_ID=1
+#      - KAFKA_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:19093
+#      - KAFKA_QUORUM_VOTERS=1@localhost:19092,2@192.168.246.229:19093,3@192.168.246.229:19094
+      - KAFKA_HEAP_OPTS=-Xmx1024m -Xms1024m
+      - RANDOM_UUID=w3CdhAhgREK86CbkscJ7dg
+    volumes:
+      - "./kafka_logs:/opt/kafka/logs"
+networks:
+  cmp:
+    name: cmp
+    driver: bridge
+    ipam:
+      driver: default
+      config: 
+        - subnet: "172.50.5.0/24"
