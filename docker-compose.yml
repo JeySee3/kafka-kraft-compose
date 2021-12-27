@@ -5,12 +5,15 @@ services:
     hostname: kafka-1
     container_name: kafka-1
     networks:
-      - cmp 
+      - cmp
+    ports:
+      - 9092:9092
+      - 9093:19093       
     environment:
       - TZ=Europe/Minsk
       - KAFKA_BROKER_ID=1
-#      - KAFKA_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:19093
-#      - KAFKA_QUORUM_VOTERS=1@localhost:19092,2@192.168.246.229:19093,3@192.168.246.229:19094
+      - KAFKA_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:19093
+      - KAFKA_QUORUM_VOTERS=1@localhost:19093,2@kafka-2:19094,3@kafka-3:19095
       - KAFKA_HEAP_OPTS=-Xmx1024m -Xms1024m
       - RANDOM_UUID=w3CdhAhgREK86CbkscJ7dg
     volumes:

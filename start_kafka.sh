@@ -7,7 +7,6 @@ else
   if [[ $KAFKA_BROKER_ID -eq 1 ]]; then
      sed -r -i "s@^#?node.id=.*@node.id=$KAFKA_BROKER_ID@g" "/opt/kafka/config/kraft/server.properties"
   else
-     cp /opt/kafka/config/kraft/broker.properties /opt/kafka/config/kraft/server.properties
      sed -r -i "s@^#?node.id=.*@node.id=$KAFKA_BROKER_ID@g" "/opt/kafka/config/kraft/server.properties"
   fi
 fi

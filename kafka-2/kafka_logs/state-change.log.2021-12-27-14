@@ -1,0 +1,3 @@
+[2021-12-27 14:13:19,255] INFO [Broker id=2] Transitioning 2 partition(s) to local followers. (state.change.logger)
+[2021-12-27 14:13:19,256] INFO [Broker id=2] Stopped fetchers as part of become-follower for 0 partitions (state.change.logger)
+[2021-12-27 14:13:19,257] INFO [Broker id=2] Started fetchers as part of become-follower for 0 partitions (state.change.logger)
