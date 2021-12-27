@@ -1,8 +1,0 @@
-[2021-12-27 15:07:35,345] INFO [Controller 2] Re-registered broker incarnation: RegisterBrokerRecord(brokerId=1, incarnationId=RMXQ9yEFT9eRAC-ITd2pKw, brokerEpoch=34, endPoints=[BrokerEndpoint(name='PLAINTEXT', host='localhost', port=9092, securityProtocol=0)], features=[], rack=null, fenced=true) (org.apache.kafka.controller.ClusterControlManager)
-[2021-12-27 15:07:36,091] INFO [Controller 2] Unfenced broker: UnfenceBrokerRecord(id=1, epoch=34) (org.apache.kafka.controller.ClusterControlManager)
-[2021-12-27 15:07:36,095] INFO [ReplicaFetcherManager on broker 2] Removed fetcher for partitions Set(kraft-test-1, kraft-test-2) (kafka.server.ReplicaFetcherManager)
-[2021-12-27 15:07:36,099] INFO [ReplicaFetcher replicaId=2, leaderId=1, fetcherId=0] Truncating partition kraft-test-1 to local high watermark 0 (kafka.server.ReplicaFetcherThread)
-[2021-12-27 15:07:36,099] INFO [ReplicaFetcherManager on broker 2] Added fetcher to broker 1 for partitions HashMap(kraft-test-1 -> InitialFetchState(BrokerEndPoint(id=1, host=localhost:9092),5,0), kraft-test-2 -> InitialFetchState(BrokerEndPoint(id=1, host=localhost:9092),5,0)) (kafka.server.ReplicaFetcherManager)
-[2021-12-27 15:07:36,099] INFO [Log partition=kraft-test-1, dir=/tmp/kraft-combined-logs] Truncating to 0 has no effect as the largest offset in the log is -1 (kafka.log.Log)
-[2021-12-27 15:07:36,100] INFO [ReplicaFetcher replicaId=2, leaderId=1, fetcherId=0] Truncating partition kraft-test-2 to local high watermark 0 (kafka.server.ReplicaFetcherThread)
-[2021-12-27 15:07:36,100] INFO [Log partition=kraft-test-2, dir=/tmp/kraft-combined-logs] Truncating to 0 has no effect as the largest offset in the log is -1 (kafka.log.Log)
