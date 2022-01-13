@@ -6,8 +6,6 @@ else
   echo "Using listeners: ${KAFKA_BROKER_ID}"
   if [[ $KAFKA_BROKER_ID -eq 1 ]]; then
      sed -r -i "s@^#?node.id=.*@node.id=$KAFKA_BROKER_ID@g" "/opt/kafka/config/kraft/server.properties"
-  else
-     sed -r -i "s@^#?node.id=.*@node.id=$KAFKA_BROKER_ID@g" "/opt/kafka/config/kraft/server.properties"
   fi
 fi
 
@@ -16,6 +14,13 @@ if [[ -z "$KAFKA_QUORUM_VOTERS" ]]; then
 else
   echo "Using QUORUM: ${KAFKA_QUORUM_VOTERS}"
   sed -r -i "s+^#?controller.quorum.voters=.*+controller.quorum.voters=$KAFKA_QUORUM_VOTERS+g" "/opt/kafka/config/kraft/server.properties"
+fi
+
+if [[ -z "$NUM_PARTITIONS" ]]; then
+  echo 'Using default NUM_PARTITIONS=1'
+else
+  echo "Using NUM_PARTITIONS: ${NUM_PARTITIONS}"
+  sed -r -i "s+^#?num.partitions=.*+num.partitions=$NUM_PARTITIONS+g" "/opt/kafka/config/kraft/server.properties"
 fi
 
 if [[ -z "$KAFKA_LISTENERS" ]]; then

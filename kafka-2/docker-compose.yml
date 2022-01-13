@@ -10,10 +10,13 @@ services:
       - TZ=Europe/Minsk
       - KAFKA_BROKER_ID=2
       - KAFKA_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:19094
-      - KAFKA_QUORUM_VOTERS=1@kafka-1:19093,2@localhost:19094,3@kafka-3:19095
+      - NUM_PARTITIONS=2        
+# Example for adding quorum
+#      - KAFKA_QUORUM_VOTERS=1@kafka-1:19093,2@localhost:19094,3@kafka-3:19095
       - KAFKA_HEAP_OPTS=-Xmx1024m -Xms1024m
       - RANDOM_UUID=w3CdhAhgREK86CbkscJ7dg
     volumes:
+      - "./kraft-combined-logs:/tmp/kraft-combined-logs"
       - "./kafka_logs:/opt/kafka/logs"
 networks:
   cmp:
