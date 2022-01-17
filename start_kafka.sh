@@ -6,6 +6,8 @@ else
   echo "Using listeners: ${KAFKA_BROKER_ID}"
   if [[ $KAFKA_BROKER_ID -eq 1 ]]; then
      sed -r -i "s@^#?node.id=.*@node.id=$KAFKA_BROKER_ID@g" "/opt/kafka/config/kraft/server.properties"
+  else
+     sed -r -i "s@^#?node.id=.*@node.id=$KAFKA_BROKER_ID@g" "/opt/kafka/config/kraft/server.properties"
   fi
 fi
 
